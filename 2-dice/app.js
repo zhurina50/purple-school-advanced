@@ -1,7 +1,11 @@
 'use strict';
 
 function random(dise) {
-    return Math.ceil(Math.random() * dise);
+    if ((dise == 4) || (dise == 6) || (dise == 8) || (dise == 10) || (dise == 12) || (dise == 16) || (dise == 20)) {
+        console.log(Math.ceil(Math.random() * dise));
+    } else {
+        console.log('я неправильный кубик');
+    }
 };
 
-console.log(random(10));
+random(15);
