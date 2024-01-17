@@ -1,31 +1,26 @@
 'use strict';
 
-const Caracter = function(race, name, language){
+const Character = function (race, name, language) {
     this.race = race;
     this.name = name;
     this.language = language;
 }
-
-Caracter.prototype.say = function () {
+Character.prototype.say = function () {
     console.log(`${this.name}, его язык - ${this.language}.`);
 }
 
-const pers = new Caracter('человек', 'Вася', 'факты');
+const pers = new Character('человек', 'Вася', 'факты');
 console.log(pers);
 pers.say();
 
-
-
 const Orc = function (race, name, language, weapon) {
-    Caracter.call(this);
+    Character.call(this, race, name, language);
     this.race = 'orc';
-    this.name = name;
-    this.language = language;
     this.weapon = weapon;
 };
-Orc.prototype = Object.create(Caracter.prototype);
+Orc.prototype = Object.create(Character.prototype);
 
-const orc2 = new Orc(1,'Орк Игорь', 'орать', 'камень');
+const orc2 = new Orc(1, 'Орк Игорь', 'орать', 'камень');
 console.log(orc2);
 orc2.say();
 Orc.prototype.hit = function () {
@@ -33,17 +28,12 @@ Orc.prototype.hit = function () {
 }
 orc2.hit();
 
-
-
 const Elf = function (race, name, language, spell) {
-    Caracter.call(this);
+    Character.call(this, race, name, language);
     this.race = 'elf';
-    this.name = name;
-    this.language = language;
     this.spell = spell;
 };
-
-Elf.prototype = Object.create(Caracter.prototype);
+Elf.prototype = Object.create(Character.prototype);
 
 const elf2 = new Elf(2, 'Эльф Григорий', 'плакать', 'трахтибидох');
 console.log(elf2);
