@@ -1,5 +1,3 @@
-'use strict';
-
 const Character = function (race, name, language) {
     this.race = race;
     this.name = name;

@@ -1,0 +1,16 @@
+body{
+    color:white;
+
+}
+h1 {
+    font-size: 50px;
+}
+p {
+    font-size: 26px;
+    width: 90px;
+}
+.time-wrap{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+}
