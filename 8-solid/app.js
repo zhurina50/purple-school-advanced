@@ -1,6 +1,4 @@
 'use strict';
-// я очень не уверена в своем решении, оно слишком простое. И зачем тут вообще класс биллинг? ради одной строчки в конструкторе?
-//зачем нам в биллинг метод calculateTotal, если он ничего не делает?
 
 class Billing {
     constructor(amount) {
@@ -11,9 +9,7 @@ class Billing {
     }
 }
 class FixBilling extends Billing {
-    calculateTotal() {
-        return this.amount
-    }
+    
 }
 class HourBilling extends Billing {
     constructor(amount, hours) {
@@ -21,7 +17,7 @@ class HourBilling extends Billing {
         this.hours = hours;
     }
     calculateTotal() {
-        return this.amount * this.hours;
+        return super.calculateTotal() * this.hours;
     }
 }
 class ItemBilling extends Billing {
@@ -30,8 +26,8 @@ class ItemBilling extends Billing {
         this.items = items;
     }
     calculateTotal() {
-        return this.amount * this.items;
+        return super.calculateTotal() * this.items;
     }
 }
-
+console.log(new FixBilling(2).calculateTotal());
 console.log(new HourBilling(1, 20).calculateTotal());
