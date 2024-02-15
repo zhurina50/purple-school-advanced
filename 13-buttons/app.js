@@ -8,21 +8,14 @@ arr.map((el, i) => {
 const counter = document.querySelector('.counter');
 let a = 0;
 
-function count() {
-    a += 1;
-    counter.innerHTML = `Нажали ${a} раз`;
-};
-
 wrapper.addEventListener('click', (event) => {
-    arr.map(el => {
-        el.innerHTML = 'Нажми меня';
-    });
-    const att = event.target.getAttribute('data-id');
-    arr.forEach((el, i) => {
-        if (i = att) {
-            wrapper.children[i].innerHTML = 'Нажата';
-        }
-    });
-    count();
-})
+    if (event.target.classList.contains('button')) {
+        arr.map(el => {
+            el.innerHTML = 'Нажми меня';
+        });
 
+        event.target.innerHTML = 'Нажата';
+        a += 1;
+        counter.innerHTML = `Нажали ${a} раз`;
+    }
+});
